@@ -43,6 +43,7 @@ partial class FormMain
         ISBN13.TabIndex = 0;
         ISBN13.Text = "ISBN-13";
         ISBN13.UseVisualStyleBackColor = true;
+        ISBN13.Click += ISBN13_Click;
         ISBN13.KeyPress += FormExitApp_KeyPress;
         // 
         // ISBN10
@@ -54,8 +55,8 @@ partial class FormMain
         ISBN10.TabIndex = 1;
         ISBN10.Text = "ISBN-10";
         ISBN10.UseVisualStyleBackColor = true;
-        ISBN10.KeyPress += FormExitApp_KeyPress;
         ISBN10.Click += ISBN10_Click;
+        ISBN10.KeyPress += FormExitApp_KeyPress;
         // 
         // label1
         // 
@@ -74,7 +75,7 @@ partial class FormMain
         Controls.Add(label1);
         Controls.Add(ISBN10);
         Controls.Add(ISBN13);
-        Text = "ISBN-Verifier";
+        Text = "win-isbn";
         KeyPress += FormExitApp_KeyPress;
         ResumeLayout(false);
     }

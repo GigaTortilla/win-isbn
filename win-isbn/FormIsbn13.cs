@@ -1,8 +1,8 @@
 ﻿namespace win_isbn;
 
-public partial class FormIsbn10 : Form
+public partial class FormIsbn13 : Form
 {
-    public FormIsbn10()
+    public FormIsbn13()
     {
         InitializeComponent();
     }
@@ -22,7 +22,7 @@ public partial class FormIsbn10 : Form
         Close();
     }
 
-    private void checkIsbn10_Click(object sender, EventArgs e)
+    private void checkIsbn13_Click(object sender, EventArgs e)
     {
         throw new System.NotImplementedException();
     }

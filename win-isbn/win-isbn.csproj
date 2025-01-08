@@ -13,6 +13,9 @@
       <Compile Update="FormIsbn10.cs">
         <SubType>Form</SubType>
       </Compile>
+      <Compile Update="FormIsbn13.cs">
+        <SubType>Form</SubType>
+      </Compile>
     </ItemGroup>
 
 </Project>

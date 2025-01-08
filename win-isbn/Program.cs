@@ -24,4 +24,14 @@ internal static class Program
         if (Application.OpenForms.Count < 1) Application.Exit();
         else Application.OpenForms[0].FormClosed += MyFormClosed;
     }
+
+    public static bool CheckIsbn10(string text)
+    {
+        throw new System.NotImplementedException("CheckIsbn10 is not implemented");
+    }
+
+    public static bool CheckIsbn13(string text)
+    {
+        throw new System.NotImplementedException("CheckIsbn13 is not implemented");
+    }
 }
