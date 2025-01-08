@@ -42,13 +42,39 @@ internal static partial class Program
         if (posLowerX is > -1 and < 9 || posUpperX is > -1 and < 9) return false;
         
         // calculate checksum using LINQ
-        var checksum = text.Select((t, i) => (i + 1) * t.GetHashCode()).Sum();
+        // if the selected char is not a number it has to be either 'x' or 'X'
+        // because of the regex filter
+        var checksum = text.Select((t, i) => (i + 1) * (char.IsNumber(t) ? t - '0' : 10)).Sum();
         return checksum % 11 == 0;
     }
 
     public static bool CheckIsbn13(string text)
     {
-        throw new System.NotImplementedException("CheckIsbn13 is not implemented");
+        // check for input string length
+        if (text.Length != 13) return false;
+        
+        // check for invalid characters
+        if (!long.TryParse(text, out _)) return false;
+        
+        // calculate checksum using LINQ
+        var checksum = text.Select((t, i) => t - '0' * (i % 2 == 0 ? 1 : 3)).Sum();
+        return checksum % 10 == 0;
+    }
+    
+    public static string? ConvertToIsbn10(string isbn13)
+    {
+        if (!CheckIsbn13(isbn13)) return null;
+
+        var partialIsbn10 = isbn13.Substring(3, 9);
+        var weight = 10;
+        var checksum = 0;
+        foreach (var c in partialIsbn10)
+        {
+            checksum += (c - '0') * weight;
+            weight--;
+        }
+        checksum = 11 - checksum % 11;
+        return partialIsbn10 + (checksum == 10 ? "X" : checksum.ToString());
     }
 
     [GeneratedRegex(@"[^0-9Xx]")]
