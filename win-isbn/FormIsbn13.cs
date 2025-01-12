@@ -24,6 +24,7 @@ public partial class FormIsbn13 : Form
 
     private void checkIsbn13_Click(object sender, EventArgs e)
     {
-        throw new System.NotImplementedException();
+        var inputText = textBoxIsbn13.Text;
+        contextLabel.Text = Program.CheckIsbn10(inputText) ? "The ISBN-13 you entered is valid" : "You did not enter a valid ISBN-13";
     }
 }

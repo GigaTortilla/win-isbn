@@ -33,7 +33,7 @@ partial class FormIsbn13
     {
         checkIsbn13 = new System.Windows.Forms.Button();
         back = new System.Windows.Forms.Button();
-        textBox1 = new System.Windows.Forms.TextBox();
+        textBoxIsbn13 = new System.Windows.Forms.TextBox();
         contextLabel = new System.Windows.Forms.Label();
         SuspendLayout();
         // 
@@ -61,10 +61,10 @@ partial class FormIsbn13
         // 
         // textBox1
         // 
-        textBox1.Location = new System.Drawing.Point(74, 35);
-        textBox1.Name = "textBox1";
-        textBox1.Size = new System.Drawing.Size(213, 23);
-        textBox1.TabIndex = 2;
+        textBoxIsbn13.Location = new System.Drawing.Point(74, 35);
+        textBoxIsbn13.Name = "textBoxIsbn13";
+        textBoxIsbn13.Size = new System.Drawing.Size(213, 23);
+        textBoxIsbn13.TabIndex = 2;
         // 
         // contextLabel
         // 
@@ -80,7 +80,7 @@ partial class FormIsbn13
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(368, 217);
         Controls.Add(contextLabel);
-        Controls.Add(textBox1);
+        Controls.Add(textBoxIsbn13);
         Controls.Add(back);
         Controls.Add(checkIsbn13);
         Text = "FormIsbn13";
@@ -90,7 +90,7 @@ partial class FormIsbn13
 
     private System.Windows.Forms.Label contextLabel;
 
-    private System.Windows.Forms.TextBox textBox1;
+    private System.Windows.Forms.TextBox textBoxIsbn13;
 
     private System.Windows.Forms.Button checkIsbn13;
 

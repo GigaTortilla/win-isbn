@@ -39,7 +39,7 @@ partial class FormIsbn10
         // 
         // textBoxIsbn10
         // 
-        textBoxIsbn10.Location = new System.Drawing.Point(74, 35);
+        textBoxIsbn10.Location = new System.Drawing.Point(74, 39);
         textBoxIsbn10.Name = "textBoxIsbn10";
         textBoxIsbn10.Size = new System.Drawing.Size(213, 23);
         textBoxIsbn10.TabIndex = 0;
