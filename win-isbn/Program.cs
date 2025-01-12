@@ -77,6 +77,17 @@ internal static partial class Program
         return partialIsbn10 + (checksum == 10 ? "X" : checksum.ToString());
     }
 
+    public static string? ConvertToIsbn13(string isbn10)
+    {
+        if (!CheckIsbn10(isbn10)) return null;
+        
+        var partialIsbn13 = "978" + isbn10;
+        var checksum = 0;
+        for (var i = 0; i < 12; i++) checksum += (partialIsbn13[i] - '0') * (i % 2 == 0 ? 1 : 3);
+        checksum = 10 - checksum % 10;
+        return partialIsbn13 + checksum;
+    }
+
     [GeneratedRegex(@"[^0-9Xx]")]
     private static partial Regex MyRegex();
 }
