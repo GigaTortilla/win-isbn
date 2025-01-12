@@ -29,4 +29,12 @@ public partial class FormIsbn13 : Form
             ? "The ISBN-13 you entered is valid"
             : "You did not enter a valid ISBN-13";
     }
+
+    private void buttonConvert_Click(object sender, EventArgs e)
+    {
+        var isbn10 = Program.ConvertToIsbn10(textBoxIsbn13.Text);
+        contextLabel.Text = isbn10 != null
+            ? "The entered ISBN-13 number is equivalent to " + isbn10 + " in ISBN-10"
+            : "You did not enter a valid ISBN-13 number";
+    }
 }

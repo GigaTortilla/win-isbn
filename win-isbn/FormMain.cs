@@ -24,7 +24,7 @@ public partial class FormMain : Form
 
     private void ISBN13_Click(object sender, EventArgs e)
     {
-        var f = new FormIsbn10();
+        var f = new FormIsbn13();
         f.Region = Region;
         f.Location = Location;
         f.StartPosition = FormStartPosition.Manual;

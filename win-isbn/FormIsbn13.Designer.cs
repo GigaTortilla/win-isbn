@@ -35,6 +35,7 @@ partial class FormIsbn13
         back = new System.Windows.Forms.Button();
         textBoxIsbn13 = new System.Windows.Forms.TextBox();
         contextLabel = new System.Windows.Forms.Label();
+        buttonConvert = new System.Windows.Forms.Button();
         SuspendLayout();
         // 
         // checkIsbn13
@@ -59,7 +60,7 @@ partial class FormIsbn13
         back.Click += back_Click;
         back.KeyPress += FormExitApp_KeyPress;
         // 
-        // textBox1
+        // textBoxIsbn13
         // 
         textBoxIsbn13.Location = new System.Drawing.Point(74, 35);
         textBoxIsbn13.Name = "textBoxIsbn13";
@@ -74,11 +75,22 @@ partial class FormIsbn13
         contextLabel.TabIndex = 3;
         contextLabel.Text = "Please enter a number to check.";
         // 
+        // buttonConvert
+        // 
+        buttonConvert.Location = new System.Drawing.Point(159, 169);
+        buttonConvert.Name = "buttonConvert";
+        buttonConvert.Size = new System.Drawing.Size(128, 35);
+        buttonConvert.TabIndex = 4;
+        buttonConvert.Text = "Convert to ISBN-10";
+        buttonConvert.UseVisualStyleBackColor = true;
+        buttonConvert.Click += buttonConvert_Click;
+        // 
         // FormIsbn13
         // 
         AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
         AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
         ClientSize = new System.Drawing.Size(368, 217);
+        Controls.Add(buttonConvert);
         Controls.Add(contextLabel);
         Controls.Add(textBoxIsbn13);
         Controls.Add(back);
@@ -87,6 +99,8 @@ partial class FormIsbn13
         ResumeLayout(false);
         PerformLayout();
     }
+
+    private System.Windows.Forms.Button buttonConvert;
 
     private System.Windows.Forms.Label contextLabel;
 

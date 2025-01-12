@@ -57,7 +57,7 @@ internal static partial class Program
         if (!long.TryParse(text, out _)) return false;
         
         // calculate checksum using LINQ
-        var checksum = text.Select((t, i) => t - '0' * (i % 2 == 0 ? 1 : 3)).Sum();
+        var checksum = text.Select((t, i) => (t - '0') * (i % 2 == 0 ? 1 : 3)).Sum();
         return checksum % 10 == 0;
     }
     
