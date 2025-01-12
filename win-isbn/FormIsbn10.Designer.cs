@@ -47,7 +47,7 @@ partial class FormIsbn10
         // 
         // checkIsbn10
         // 
-        checkIsbn10.Location = new System.Drawing.Point(18, 169);
+        checkIsbn10.Location = new System.Drawing.Point(84, 169);
         checkIsbn10.Name = "checkIsbn10";
         checkIsbn10.Size = new System.Drawing.Size(69, 35);
         checkIsbn10.TabIndex = 1;
@@ -58,7 +58,7 @@ partial class FormIsbn10
         // 
         // back
         // 
-        back.Location = new System.Drawing.Point(93, 169);
+        back.Location = new System.Drawing.Point(18, 169);
         back.Name = "back";
         back.Size = new System.Drawing.Size(60, 35);
         back.TabIndex = 2;

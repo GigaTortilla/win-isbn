@@ -25,9 +25,13 @@ public partial class FormIsbn13 : Form
     private void checkIsbn13_Click(object sender, EventArgs e)
     {
         var inputText = textBoxIsbn13.Text;
-        contextLabel.Text = Program.CheckIsbn13(inputText)
-            ? "The ISBN-13 you entered is valid"
-            : "You did not enter a valid ISBN-13";
+        if (Program.CheckIsbn13(inputText))
+        {
+            contextLabel.Text = "The ISBN-13 you entered is valid";
+            var countryCode = Program.GetRegistrationGroup(inputText);
+            if (countryCode != null) contextLabel.Text += "\nAgency" + countryCode;
+        }
+        else contextLabel.Text = "You did not enter a valid ISBN-13";
     }
 
     private void buttonConvert_Click(object sender, EventArgs e)
