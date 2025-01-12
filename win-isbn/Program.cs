@@ -1,9 +1,14 @@
+using System.Runtime.CompilerServices;
+using System.Xml;
+
 namespace win_isbn;
 
 using System.Text.RegularExpressions;
 
 internal static partial class Program
 {
+    private static List<Tuple<string, string>> registrationCodes = [];
+    
     /// <summary>
     ///  The main entry point for the application.
     /// </summary>
@@ -12,6 +17,7 @@ internal static partial class Program
     {
         // To customize application configuration such as set high DPI settings or default font,
         // see https://aka.ms/applicationconfiguration.
+        InitializeRegistrationCodes();
         ApplicationConfiguration.Initialize();
         Application.EnableVisualStyles();
         Application.SetCompatibleTextRenderingDefault(false);
@@ -86,6 +92,28 @@ internal static partial class Program
         for (var i = 0; i < 12; i++) checksum += (partialIsbn13[i] - '0') * (i % 2 == 0 ? 1 : 3);
         checksum = 10 - checksum % 10;
         return partialIsbn13 + checksum;
+    }
+
+    private static void InitializeRegistrationCodes()
+    {
+        var rangeMessage = new XmlDocument();
+        rangeMessage.Load("../../../RangeMessage.xml");
+        var registrationGroups = rangeMessage.DocumentElement?.SelectSingleNode("/ISBNRangeMessage/RegistrationGroups")?.ChildNodes;
+        if (registrationGroups == null) return;
+        foreach (XmlElement registrationGroup in registrationGroups)
+        {
+            var prefix = registrationGroup.SelectSingleNode("Prefix")?.InnerText.Replace("-", string.Empty);
+            var agency = registrationGroup.SelectSingleNode("Agency")?.InnerText;
+            if (prefix != null && agency != null) registrationCodes.Add(new Tuple<string, string>(prefix, agency));
+        }
+    }
+
+    public static string? GetRegistrationGroup(string isbn)
+    {
+        return registrationCodes
+            .Where(registrationCode => isbn.StartsWith(registrationCode.Item1))
+            .Select(registrationCode => registrationCode.Item2)
+            .FirstOrDefault();
     }
 
     [GeneratedRegex(@"[^0-9Xx]")]
