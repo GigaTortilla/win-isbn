@@ -81,7 +81,7 @@ internal static partial class Program
     {
         if (!CheckIsbn10(isbn10)) return null;
         
-        var partialIsbn13 = "978" + isbn10;
+        var partialIsbn13 = "978" + isbn10[..^1];
         var checksum = 0;
         for (var i = 0; i < 12; i++) checksum += (partialIsbn13[i] - '0') * (i % 2 == 0 ? 1 : 3);
         checksum = 10 - checksum % 10;
